@@ -1,0 +1,12 @@
+app = "bbstarou-ssh" # ← あなたのアプリ名に変更してください
+primary_region = "nrt"    # 東京リージョン (成田)
+
+[build]
+
+# Web用プロキシを無視して raw TCP を通過させる設定
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 8080
