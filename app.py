@@ -44,7 +44,7 @@ def get_anonymous_id(ip):
     raw = f"{ip}:{today}:TERMINAL_SECRET_SALT"
     return "ID:" + hashlib.sha256(raw.encode()).hexdigest()[:8]
 
-# 2. SSH認証の無効化（GitHubスタイルでパスワード不要接続）
+# 2. SSH認証の無効化（パスワード不要接続）
 class GitHubStyleSSHServer(paramiko.ServerInterface):
     def check_channel_request(self, kind, chanid):
         return paramiko.OPEN_SUCCEEDED if kind == 'session' else paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
